@@ -14,9 +14,9 @@ const nbaCardsData = [
     img:'./img/Lakers.webp',
     name: "Lakers",
     country: "USA",
-    city: "TLos-Angeles",
-    champions: 7,
-    currentPosition: 17,
+    city: "Los-Angeles",
+    champions: 17,
+    currentPosition: 7,
     ticketPrice: "from 35$",
   },
   {
@@ -39,6 +39,7 @@ const nbaCardsData = [
     champions: 6,
     currentPosition: 7,
     ticketPrice: "from 53$",
+
   },
   {
     id: 5,
@@ -46,7 +47,7 @@ const nbaCardsData = [
     name: "Nuggets",
     country: "USA",
     city: "Denver",
-    champions: 4,
+    champions: 0,
     currentPosition: 1,
     ticketPrice: "from 45$",
   },
