@@ -267,7 +267,7 @@ table {
   border-radius: 10px;
   background: linear-gradient(90deg, rgb(86, 86, 255) 50%, red 50%);
   border: 1px solid black;
-  padding: 5px;
+  padding: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -276,20 +276,45 @@ table {
 }
 .team-icon {
   object-fit: contain;
-  width: auto;
+  width: 100%;
   height: 150px;
-
+  transition: 0.3s;
 }
-.team-name {
+.team-icon:hover {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+.team-country {
+  position: relative;
+}
+.team-name,
+.team-country,
+.team-city {
+  transition: 0.3s;
   font-size: 25px;
   font-weight: bold;
 }
+.team-name:hover,
+.team-country:hover,
+.team-city:hover {
+  transition: 0.3s;
+  transform: translateX(40px);
+  color: gold;
+  cursor: pointer;
+}
 .nba-card-content {
   padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .footer {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .top-card::before {
   content: "";
@@ -300,15 +325,35 @@ table {
   left: 10px;
   background: url(../img/top-5.webp) 0 0 / contain;
 }
-/* .country-flag-usa::before {
+.country-flag-usa::before {
   content: "";
-  width: 20px;
+  width: 30px;
   height: 20px;
-  background: url(../img/usa.webp) 0 0 / contain;
+  background: url(../img/usa.webp) 0 0 / cover;
+  position: absolute;
+  left: 170px;
+  top: 5px;
 }
 .country-flag-canada::before {
   content: "";
-  width: 20px;
-  height: 20px;
-  background: url(../img/canada.webp) 0 0 / contain;
-} */
+  width: 30px;
+  height: 30px;
+  background: url(../img/canada.webp) 0 0 / cover;
+  position: absolute;
+  left: 190px;
+  top: 0;
+}
+.current-position,
+.ticket-price,
+.champions,
+.team-rate {
+  transition: 0.3s;
+}
+.current-position:hover,
+.ticket-price:hover,
+.champions:hover,
+.team-rate:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  color: silver;
+}
