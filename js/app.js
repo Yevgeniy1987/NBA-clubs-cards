@@ -1,4 +1,32 @@
 const nbaListElement = document.getElementById("nba-list");
+const tileActions = document.getElementById("tile-actions");
+const tileActionBtn = tileActions.children;
+
+tileActions.addEventListener("click", (event) => {
+  const currentActionBtn = event.target.classList.contains("tile-action")
+    ? event.target
+    : null;
+  if (currentActionBtn) {
+    for (let i = 0; i < tileActionBtn.length; i++) {
+      const actionButton = tileActionBtn[i];
+      if (actionButton === currentActionBtn) {
+        currentActionBtn.classList.add("is-active");
+      } else {
+        currentActionBtn.classList.remove("is-active");
+      }
+    }
+    const action = currentActionBtn.dataset.action;
+    console.log("clicked on button", action);
+    if (action === "one-clm") {
+      nbaListElement.classList.add("one-clm");
+      nbaListElement.classList.remove("three-clm");
+    }
+    if (action === "three-clm") {
+      nbaListElement.classList.add("three-clm");
+      nbaListElement.classList.remove("one-clm");
+    }
+  }
+});
 
 for (i = 0; i < nbaCardsData.length; i++) {
   const card = nbaCardsData[i];
@@ -16,29 +44,27 @@ function createNbaCard(card) {
   return `<div class="nba-card ${card.currentPosition <= 5 ? "top-card" : ""}">
     <img class="team-icon" src="${card.img}" alt="team-icon" />
     <div class="nba-card-content">
-      <h2 class="team-name">${"Team name:"}${card.name}</h2>
+      <h2 class="team-name">Team name:${card.name}</h2>
       <h3 class="team-country ${
         card.country == "USA"
           ? "Country:" && card.country && "country-flag-usa"
           : "Country:" && card.country && "country-flag-canada"
-      }">${"Country:"}${card.country}</h3>
-      <h3 class="team-city">${"City:"}${card.city}</h3>
+      }">Country:${card.country}</h3>
+      <h3 class="team-city">City:${card.city}</h3>
       <div class="footer">
      
-        <span class="current-position">${"Seasonal position:"}${
-    card.currentPosition
-  }</span>
-        <span class="ticket-price">${"Ticket price:"} ${card.ticketPrice}</span>
+        <span class="current-position">Seasonal position:${
+          card.currentPosition
+        }</span>
+        <span class="ticket-price">Ticket price: ${card.ticketPrice}</span>
         ${card.priceForUkr ? "Price for ukrainians:" + card.priceForUkr : ""}
         ${
           card.champions
-            ? `<span class="champions">${"Champion rings:"} ${championRings}</span>}`
-            : ''
+            ? `<span class="champions">Champion rings: ${championRings}</span>`
+            : ""
         }
        
-        <span class="team-rate">${"Fan Rating:"} ${starsRating}${
-    card.fanRate
-  }</span>
+        <span class="team-rate">Fan Rating: ${starsRating}${card.fanRate}</span>
       </div>
     </div>
   </div>`;

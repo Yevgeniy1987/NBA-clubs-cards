@@ -262,10 +262,24 @@ table {
   gap: 30px;
   justify-content: center;
 }
-.nba-card {
+
+.nba-list.three-clm>.nba-card {
   width: calc(100% / 3 - 60px);
+}
+.nba-list.one-clm>.nba-card {
+  width: calc(80%);
+  display: flex;
+  flex-direction: row;
+}
+
+.nba-list.one-clm>.nba-card>.team-icon {
+  height: 230px;
+}
+
+.nba-card {
+  
   border-radius: 10px;
-  background: linear-gradient(90deg, rgb(86, 86, 255) 50%, red 50%);
+  background: linear-gradient(90deg, rgb(158, 158, 237) 50%, rgb(245, 180, 180) 50%);
   border: 1px solid black;
   padding: 10px;
   position: relative;
@@ -281,7 +295,7 @@ table {
   transition: 0.3s;
 }
 .team-icon:hover {
-  transform: rotate(180deg);
+  transform: scale(1.2);
   transition: 0.3s;
 }
 .team-country {
@@ -298,7 +312,7 @@ table {
 .team-country:hover,
 .team-city:hover {
   transition: 0.3s;
-  transform: translateX(40px);
+  transform: translateX(10px);
   color: gold;
   cursor: pointer;
 }
@@ -356,4 +370,20 @@ table {
   transition: 0.3s;
   cursor: pointer;
   color: silver;
+}
+.content-align {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+.tile-actions {
+display: flex;
+justify-content: flex-end;
+gap: 5px;
+}
+.tile-action {
+  
+}
+.is-active {
+  background-color: aquamarine;
 }
