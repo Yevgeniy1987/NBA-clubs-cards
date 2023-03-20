@@ -2,32 +2,6 @@ const nbaListElement = document.getElementById("nba-list");
 const tileActions = document.getElementById("tile-actions");
 const tileActionBtn = tileActions.children;
 
-tileActions.addEventListener("click", (event) => {
-  const currentActionBtn = event.target.classList.contains("tile-action")
-    ? event.target
-    : null;
-  if (currentActionBtn) {
-    for (let i = 0; i < tileActionBtn.length; i++) {
-      const actionButton = tileActionBtn[i];
-      if (actionButton === currentActionBtn) {
-        currentActionBtn.classList.add("is-active");
-      } else {
-        currentActionBtn.classList.remove("is-active");
-      }
-    }
-    const action = currentActionBtn.dataset.action;
-    console.log("clicked on button", action);
-    if (action === "one-clm") {
-      nbaListElement.classList.add("one-clm");
-      nbaListElement.classList.remove("three-clm");
-    }
-    if (action === "three-clm") {
-      nbaListElement.classList.add("three-clm");
-      nbaListElement.classList.remove("one-clm");
-    }
-  }
-});
-
 for (i = 0; i < nbaCardsData.length; i++) {
   const card = nbaCardsData[i];
 
@@ -87,3 +61,38 @@ function createStarsRating(fanRate) {
   }
   return stars;
 }
+
+const nbaCont = document.querySelectorAll(".nba-card-content");
+
+tileActions.addEventListener("click", (event) => {
+  const currentActionBtn = event.target.classList.contains("tile-action")
+    ? event.target
+    : null;
+  if (currentActionBtn) {
+    for (let i = 0; i < tileActionBtn.length; i++) {
+      const actionButton = tileActionBtn[i];
+
+      if (actionButton === currentActionBtn) {
+        actionButton.classList.add("is-active");
+      } else {
+        actionButton.classList.remove("is-active");
+      }
+    }
+
+    const action = currentActionBtn.dataset.action;
+
+    console.log("clicked on button", action);
+    if (action === "one-clm") {
+      nbaListElement.classList.add("one-clm");
+      nbaListElement.classList.remove("three-clm", "compact-card");
+    }
+    if (action === "three-clm") {
+      nbaListElement.classList.add("three-clm");
+      nbaListElement.classList.remove("one-clm", "compact-card");
+    }
+    if (action === "compact-card") {
+      nbaListElement.classList.add("compact-card");
+      nbaListElement.classList.remove("three-clm", "one-clm");
+    }
+  }
+});
