@@ -420,12 +420,12 @@ font-size: 20px;
   font-size: 15px;
 }
 .nba-list.compact-card>.nba-card>.nba-card-content>.country-flag-canada::before {
-  left: 150px;
+  left: 180px;
   width: 20px;
   height: 15px;
  }
  .nba-list.compact-card>.nba-card>.nba-card-content>.country-flag-usa::before {
-  left: 145px;
+  left: 175px;
   width: 20px;
   height: 10px;
  }
