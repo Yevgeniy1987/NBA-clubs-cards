@@ -7,8 +7,8 @@ const nbaCardsData = [
     city: "Toronto",
     champions: 1,
     currentPosition: 9,
-    ticketPrice: "from 45$",
-    priceForUkr: "from 15$",
+    minTicketPrice: 120,
+    minPriceForUkr: 65,
     fanRate: 3.5,
   },
   {
@@ -19,7 +19,7 @@ const nbaCardsData = [
     city: "Los-Angeles",
     champions: 17,
     currentPosition: 7,
-    ticketPrice: "from 35$",
+    minTicketPrice: 95,
     fanRate: 4,
   },
   {
@@ -30,8 +30,8 @@ const nbaCardsData = [
     city: "Boston",
     champions: 12,
     currentPosition: 2,
-    ticketPrice: "from 42$",
-    priceForUkr: "from 15$",
+    minTicketPrice: 80,
+    minPriceForUkr: 50,
     fanRate: 5,
   },
 
@@ -43,7 +43,7 @@ const nbaCardsData = [
     city: "San Francisco",
     champions: 6,
     currentPosition: 7,
-    ticketPrice: "from 53$",
+    minTicketPrice: 75,
     fanRate: 4.5,
   },
   {
@@ -54,8 +54,8 @@ const nbaCardsData = [
     city: "Denver",
     champions: 4,
     currentPosition: 1,
-    ticketPrice: "from 45$",
-    priceForUkr: "from 15$",
+    minTicketPrice: 96,
+    minPriceForUkr: 65,
     fanRate: 4,
   },
   {
@@ -66,7 +66,7 @@ const nbaCardsData = [
     city: "Chicago",
     champions: 6,
     currentPosition: 9,
-    ticketPrice: "from 45$",
+    minTicketPrice: 100,
     fanRate: 2.5,
   },
 ];
