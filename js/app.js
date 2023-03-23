@@ -1,8 +1,9 @@
+'use strict'
 const nbaListElement = document.getElementById("nba-list");
 const tileActions = document.getElementById("tile-actions");
 const tileActionBtn = tileActions.children;
 
-for (i = 0; i < nbaCardsData.length; i++) {
+for ( let i = 0; i < nbaCardsData.length; i++) {
   const card = nbaCardsData[i];
 
   const nbaCardHTML = createNbaCard(card);
@@ -18,13 +19,13 @@ function createNbaCard(card) {
   return `<div class="nba-card ${card.currentPosition <= 5 ? "top-card" : ""}">
     <img class="team-icon" src="${card.img}" alt="team-icon" />
     <div class="nba-card-content">
-      <h2 class="team-name">Team name:${card.name}</h2>
-      <h3 class="team-country ${
+      <h2 class="team-card-content-text">Team name:${card.name}</h2>
+      <h3 class="team-card-content-text team-country ${
         card.country == "USA"
           ? "Country:" && card.country && "country-flag-usa"
           : "Country:" && card.country && "country-flag-canada"
       }">Country:${card.country}</h3>
-      <h3 class="team-city">City:${card.city}</h3>
+      <h3 class="team-card-content-text">City:${card.city}</h3>
       <div class="footer">
      
         <span class="current-position">Seasonal position:${

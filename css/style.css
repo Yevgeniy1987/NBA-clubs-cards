@@ -246,6 +246,11 @@ table {
   width: 100%;
   margin: 0 auto;
 }
+.content-align {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 .nba-title {
   font-size: 45px;
@@ -256,6 +261,15 @@ table {
   text-align: center;
   padding: 30px 0;
 }
+.tile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.tile-action {
+  font-size: 20px;
+}
+
 .nba-list {
   display: flex;
   flex-wrap: wrap;
@@ -263,36 +277,66 @@ table {
   justify-content: center;
 }
 
-.nba-list.three-clm>.nba-card {
+.nba-list.compact-card .nba-card {
+  width: calc(40%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.is-active {
+  background-color: aquamarine;
+}
+.nba-list.compact-card .nba-card-content {
+  width: 50%;
+}
+
+.nba-list.compact-card .nba-card-content {
+  font-size: 15px;
+}
+.nba-list.compact-card .country-flag-canada::before {
+  left: 120px;
+  width: 20px;
+  height: 15px;
+}
+.nba-list.compact-card .country-flag-usa::before {
+  left: 115px;
+  width: 20px;
+  height: 10px;
+}
+.nba-list.compact-card .team-icon {
+  width: 50%;
+}
+
+.nba-list.three-clm .nba-card {
   width: calc(100% / 3 - 60px);
 }
-.nba-list.one-clm>.nba-card {
+.nba-list.one-clm .nba-card {
   width: calc(80%);
   display: flex;
   flex-direction: row;
 }
 
-.nba-list.one-clm>.nba-card>.team-icon {
+.nba-list.one-clm .team-icon {
   height: 200px;
-  
 }
 
-.nba-list.one-clm>.nba-card>.nba-card-content>.country-flag-canada::before {
+.nba-list.one-clm .country-flag-canada::before {
   left: 325px;
- 
- }
- .nba-list.one-clm>.nba-card>.nba-card-content>.country-flag-usa::before {
+}
+.nba-list.one-clm .country-flag-usa::before {
   left: 325px;
- 
- }
- .nba-list.one-clm,.nba-list.compact-card>.nba-card>.nba-card-content{
+}
+.nba-list.one-clm .nba-card-content {
   text-align: center;
- }
+}
 
 .nba-card {
-  
   border-radius: 10px;
-  background: linear-gradient(90deg, rgb(158, 158, 237) 50%, rgb(245, 180, 180) 50%);
+  background: linear-gradient(
+    90deg,
+    rgb(158, 158, 237) 50%,
+    rgb(245, 180, 180) 50%
+  );
   border: 1px solid black;
   padding: 10px;
   position: relative;
@@ -314,11 +358,8 @@ table {
 .team-country {
   position: relative;
 }
-.team-name,
-.team-country,
-.team-city {
+.team-card-content-text {
   transition: 0.3s;
-  font-size: 25px;
   font-weight: bold;
 }
 .team-name:hover,
@@ -335,14 +376,9 @@ table {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  font-size: 25px;
 }
-.footer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
+
 .top-card::before {
   content: "";
   width: 30px;
@@ -384,52 +420,13 @@ table {
   cursor: pointer;
   color: silver;
 }
-.content-align {
- display: flex;
- flex-direction: column;
- gap: 15px;
-}
-.tile-actions {
-display: flex;
-justify-content: flex-end;
-gap: 5px;
-}
-.tile-action {
-font-size: 20px;
-}
-.nba-list.compact-card>.nba-card {
-  
-  width: calc(40%);
+.footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
-.is-active {
-  background-color: aquamarine;
-}
-.nba-list.compact-card>.nba-card>.nba-card-content {
-  width: 50%;
-}
-.nba-list.compact-card>.nba-card>.nba-card-content>.footer  {
-  font-size: 15px;
+.nba-list.compact-card .footer {
   display: none;
-
-}
-
-.nba-list.compact-card>.nba-card>.nba-card-content>.team-name, .team-country,.team-city {
-  font-size: 15px;
-}
-.nba-list.compact-card>.nba-card>.nba-card-content>.country-flag-canada::before {
-  left: 180px;
-  width: 20px;
-  height: 15px;
- }
- .nba-list.compact-card>.nba-card>.nba-card-content>.country-flag-usa::before {
-  left: 175px;
-  width: 20px;
-  height: 10px;
- }
- .nba-list.nba-list.compact-card>.nba-card>.team-icon {
-  width: 50%;
-  
 }
