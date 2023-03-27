@@ -261,6 +261,13 @@ table {
   text-align: center;
   padding: 30px 0;
 }
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
 .tile-actions {
   display: flex;
   justify-content: flex-end;

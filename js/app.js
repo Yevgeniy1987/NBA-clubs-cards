@@ -2,6 +2,36 @@
 const nbaListElement = document.getElementById("nba-list");
 const tileActions = document.getElementById("tile-actions");
 const tileActionBtn = tileActions.children;
+const searchForm = document.getElementById("search-form");
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // const form = event.target
+  // const inputField = form.searchQuery
+  // const InputValue = inputField.value
+
+  const searchQueryString = event.target.searchQuery.value
+    .trim()
+    .replaceAll(/\s{2,}/g, " ")
+    .toLowerCase();
+
+  const filteredCards = nbaCardsData.filter((cardData) => {
+    // return `${cardData.name}&&${cardData.city}&&${cardData.country}`
+    return `${cardData.champions}&&${cardData.fanRate}&&${cardData.minTicketPrice}&&${cardData.minPriceForUkr}`
+      .toLowerCase()
+      .includes(searchQueryString);
+  });
+
+  console.log(filteredCards);
+
+  nbaListElement.innerHTML = "";
+
+  filteredCards.forEach((card) => {
+    const nbaCardHTML = createNbaCard(card);
+
+    nbaListElement.insertAdjacentHTML("beforeend", nbaCardHTML);
+  });
+});
 
 // for ( let i = 0; i < nbaCardsData.length; i++) {
 //   const card = nbaCardsData[i];
@@ -103,51 +133,51 @@ tileActions.addEventListener("click", (event) => {
   }
 });
 
-const topFanRate = nbaCardsData.filter((card) => {
-  return card.fanRate < 3;
-});
-console.log(topFanRate);
+// const topFanRate = nbaCardsData.filter((card) => {
+//   return card.fanRate < 3;
+// });
+// console.log(topFanRate);
 
-const countryNbaCards = nbaCardsData.filter((card) => {
-  return card.country === "USA";
-});
-console.log(countryNbaCards);
+// const countryNbaCards = nbaCardsData.filter((card) => {
+//   return card.country === "USA";
+// });
+// console.log(countryNbaCards);
 
-const positionNbaCards = countryNbaCards.map((card) => {
-  return card.currentPosition < 5;
-});
-console.log(positionNbaCards);
-const findResult = nbaCardsData.find((card) => {
-  return card.name === "Lakers";
-});
-console.log(findResult);
+// const positionNbaCards = countryNbaCards.map((card) => {
+//   return card.currentPosition < 5;
+// });
+// console.log(positionNbaCards);
+// const findResult = nbaCardsData.find((card) => {
+//   return card.name === "Lakers";
+// });
+// console.log(findResult);
 
-const specialPriceForUkr = nbaCardsData.filter((card) => {
-  return card.minPriceForUkr;
-});
+// const specialPriceForUkr = nbaCardsData.filter((card) => {
+//   return card.minPriceForUkr;
+// });
 
-console.log(specialPriceForUkr);
+// console.log(specialPriceForUkr);
 
-const discountForUkr = specialPriceForUkr.map((card) => {
-  return (card.minPriceForUkr / card.minTicketPrice) * 100;
-});
+// const discountForUkr = specialPriceForUkr.map((card) => {
+//   return (card.minPriceForUkr / card.minTicketPrice) * 100;
+// });
 
-discountForUkr.forEach((elem) => {
-  console.log("Discount for ukrainians is --->", elem.toFixed(0), "%");
-});
+// discountForUkr.forEach((elem) => {
+//   console.log("Discount for ukrainians is --->", elem.toFixed(0), "%");
+// });
 
-const someResult = nbaCardsData.some(card => {
-  return card.name === "Pacers";
-})
+// const someResult = nbaCardsData.some(card => {
+//   return card.name === "Pacers";
+// })
 
-console.log(someResult);
+// console.log(someResult);
 
-const everyResult = nbaCardsData.every(card => {
-  return card.minPriceForUkr;
-})
-console.log(everyResult);
+// const everyResult = nbaCardsData.every(card => {
+//   return card.minPriceForUkr;
+// })
+// console.log(everyResult);
 
-const includesResult = nbaCardsData.includes(card => {
-  return card.city;
-})
-console.log(includesResult);
+// const includesResult = nbaCardsData.includes(card => {
+//   return card.city;
+// })
+// console.log(includesResult);
