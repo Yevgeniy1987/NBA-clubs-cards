@@ -16,8 +16,7 @@ searchForm.addEventListener("submit", (event) => {
     .toLowerCase();
 
   const filteredCards = nbaCardsData.filter((cardData) => {
-    // return `${cardData.name}&&${cardData.city}&&${cardData.country}`
-    return `${cardData.champions}&&${cardData.fanRate}&&${cardData.minTicketPrice}&&${cardData.minPriceForUkr}`
+    return `${cardData.name} ${cardData.city} ${cardData.country}`
       .toLowerCase()
       .includes(searchQueryString);
   });
@@ -132,6 +131,15 @@ tileActions.addEventListener("click", (event) => {
     }
   }
 });
+
+const filteredCardsByNames = nbaCardsData.map(card=> {
+  return card.name;
+})
+console.log(filteredCardsByNames);
+
+if (filteredCardsByNames === "Lakers") {
+  filteredCardsByNames.classList.add("lakers");
+}
 
 // const topFanRate = nbaCardsData.filter((card) => {
 //   return card.fanRate < 3;

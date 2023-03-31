@@ -240,7 +240,9 @@ table {
 }
 
 /*=========COMMON STYLES START============*/
+:root {
 
+}
 .container {
   max-width: 1200px;
   width: 100%;
@@ -285,7 +287,7 @@ table {
 }
 
 .nba-list.compact-card .nba-card {
-  width: calc(40%);
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -338,13 +340,10 @@ table {
 }
 
 .nba-card {
-  border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    rgb(158, 158, 237) 50%,
-    rgb(245, 180, 180) 50%
-  );
-  border: 1px solid black;
+  border-radius: 20px;
+  background: hsl(var(--hslHue), 100%, 85%);
+  border-color: hsl(var(--hslHue), 100%, 40%);
+  color:hsl(var(--hslHue), 100%, 25%);
   padding: 10px;
   position: relative;
   display: flex;
@@ -352,6 +351,10 @@ table {
   justify-content: center;
   align-items: center;
 }
+.lakers {
+  --hslHue: 60;
+}
+
 .team-icon {
   object-fit: contain;
   width: 100%;
