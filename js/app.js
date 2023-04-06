@@ -3,6 +3,7 @@ const nbaListElement = document.getElementById("nba-list");
 const tileActions = document.getElementById("tile-actions");
 const tileActionBtn = tileActions.children;
 const searchForm = document.getElementById("search-form");
+const sortForm = document.getElementById("sortForm");
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -46,7 +47,11 @@ function createNbaCard(card) {
 
   const starsRating = createStarsRating(card.fanRate);
 
-  return `<div class="nba-card ${card.currentPosition <= 5 ? "top-card" : ""}">
+  const colorClassName = card.name.toLowerCase().replaceAll(" ", "-");
+
+  return `<div class="nba-card ${colorClassName} ${
+    card.currentPosition <= 5 ? "top-card" : ""
+  }">
     <img class="team-icon" src="${card.img}" alt="team-icon" />
     <div class="nba-card-content">
       <h2 class="team-card-content-text">Team name:${card.name}</h2>
@@ -132,13 +137,40 @@ tileActions.addEventListener("click", (event) => {
   }
 });
 
-const filteredCardsByNames = nbaCardsData.map(card=> {
-  return card.name;
-})
-console.log(filteredCardsByNames);
+sortForm.addEventListener("change", (e) => {
+  const sortSelection = e.target.value.split("/");
 
-if (filteredCardsByNames === "Lakers") {
-  filteredCardsByNames.classList.add("lakers");
+  const key = sortSelection[0];
+  const order = sortSelection[1];
+
+  console.log(key, order);
+
+  smartSort(nbaCardsData, order, key);
+
+  reRender(sortForm, nbaCardsData, true);
+});
+
+function smartSort(array, order = 1, key) {
+  array.sort((a, b) => {
+    const elem1 = key ? a[key] : a;
+    const elem2 = key ? b[key] : b;
+
+    return (
+      String(elem1).localeCompare(String(elem2), undefined, { numeric: true }) *
+      order
+    );
+  });
+}
+
+function reRender(to, array, clear) {
+  if (clear) {
+    to.innerHTML = "";
+  }
+  array.forEach((card) => {
+    const nbaCardHTML = createNbaCard(card);
+
+    to.insertAdjacentHTML("beforeend", nbaCardHTML);
+  });
 }
 
 // const topFanRate = nbaCardsData.filter((card) => {

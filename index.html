@@ -15,6 +15,14 @@
     <main>
       <div class="container content-align">
         <h1 class="nba-title">NBA favorite six</h1>
+        <select name="orderBy" id="sortForm">
+          <option value="name/1">Name (A-Z)</option>
+          <option value="name/-1">Name (Z-A)</option>
+          <option value="city/1">City (A-Z)</option>
+          <option value="city/-1">City (Z-A)</option>
+          <option value="fanRate/1">Fan Rating (asc)</option>
+          <option value="fanRate/-1">Fan Rating (desc)</option>
+        </select>
         <div class="top-bar">
           <form class="search-bar" id="search-form">
             <input type="search" name="searchQuery">

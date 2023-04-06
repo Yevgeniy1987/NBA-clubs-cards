@@ -351,10 +351,27 @@ table {
   justify-content: center;
   align-items: center;
 }
+.raptors  {
+  --hslHue: 0;
+}
 .lakers {
   --hslHue: 60;
 }
-
+.celtics {
+  --hslHue: 120;
+}
+.warriors {
+  --hslHue: 60;
+}
+.nuggets {
+  --hslHue: 240;
+}
+.bulls {
+  --hslHue: 0;
+}
+.raptors-905 {
+  --hslHue: 300;
+}
 .team-icon {
   object-fit: contain;
   width: 100%;
